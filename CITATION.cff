@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this tutorial or repository template, please cite it."
+title: "Using AI Coding Agents Responsibly with Sensitive Research Data"
+authors:
+  - family-names: "Author"
+    given-names: "Name"
+year: 2026
+license: MIT
+repository-code: "https://example.org/replace-with-repository-url"
+abstract: "A tutorial and repository template for agent-assisted code development and agent-free protected analysis in computational social science research."

@@ -1,0 +1,7 @@
+services:
+  dirty-dev:
+    build: .
+    working_dir: /workspace
+    network_mode: "none"
+    volumes:
+      - .:/workspace

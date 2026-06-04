@@ -1,0 +1,9 @@
+post_id,user_id,platform,language,created_at,text,label
+mock-post-001,mock-user-01,ExampleNet,en,2026-01-05T10:00:00Z,"Public transit is late again in the mock city.",complaint
+mock-post-002,mock-user-02,ExampleNet,en,2026-01-05T10:05:00Z,"The new library hours are helpful.",support
+mock-post-003,mock-user-03,ExampleForum,de,2026-01-05T10:10:00Z,"Beispieltext ueber lokale Infrastruktur.",neutral
+mock-post-004,mock-user-04,ExampleForum,en,2026-01-05T10:15:00Z,"Question about the community meeting agenda.",question
+mock-post-005,mock-user-05,ExampleNet,es,2026-01-05T10:20:00Z,"Mensaje ficticio sobre servicios publicos.",neutral
+mock-post-006,mock-user-06,ExampleVideo,en,2026-01-05T10:25:00Z,"Caption for a mock video post.",support
+mock-post-007,mock-user-07,ExampleNet,en,2026-01-05T10:30:00Z,"Another fake post with missing-style edge cases.",complaint
+mock-post-008,mock-user-08,ExampleForum,fr,2026-01-05T10:35:00Z,"Texte factice pour verifier les langues.",neutral

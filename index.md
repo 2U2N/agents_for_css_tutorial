@@ -1,6 +1,6 @@
 ---
 title: "Using AI Coding Agents Responsibly with Sensitive Research Data"
-author: "Author Name"
+author: "David Wegmann, Ahrabhi Kathirgamalingam, Paul Pressmann, Yuru Li"
 bibliography: references.bib
 format:
   html: default

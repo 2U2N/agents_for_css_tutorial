@@ -2,9 +2,9 @@
 
 - Find better title
 
-- add author names, and reference
+- add author names, and reference (done)
 
-- integrate environmental impact assessment
+- integrate environmental impact assessment (done)
 
   - based on sean's paper
 

@@ -64,6 +64,10 @@ The recommended workflow is therefore:
 
 This architecture strongly mitigates privacy and containment risks. It does not, by itself, solve validity, interpretation, or accountability risks. Those require human review, transparent documentation, and validation.
 
+> environmental evaluation.
+
+It also does not automatically solve environmental risks. Agent-assisted workflows can increase the number of model calls, reruns, debugging cycles, and computational experiments. Following Palicki, Bravo, and Claessen’s argument, researchers should not default to LLM-based methods when lighter, task-specific tools can provide sufficient validity at lower environmental cost. Environmental impact should therefore be assessed as part of model and workflow selection, not only reported afterward.
+
 ## Basic Coding-Agent Concepts for Researchers and Reviewers
 
 Coding agents vary by provider and interface, but most work by reading some combination of prompt text, open files, selected repository context, terminal output, logs, and tool results. Some can edit files, run shell commands, install packages, use Git, browse the web, inspect screenshots, or call external tools.
@@ -351,4 +355,5 @@ The two-environment architecture strongly mitigates privacy and containment risk
 
 ## References
 
-The tutorial structure follows the public Methods Hub tutorial guidance and template [@gesis_methods_hub_guidelines; @gesis_methods_hub].
+Palicki, S., Bravo, I., & Claessen, C. (2025, August 14). Don’t Look Up: Evaluating the Tradeoff between Performance and Sustainability of LLMs for Text Analysis. https://doi.org/10.31235/osf.io/vwb5h_v1
+

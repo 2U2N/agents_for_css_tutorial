@@ -14,7 +14,8 @@ By the end of this tutorial, you will be able to:
 2.  Set up a two-environment workflow for agent-assisted coding on mock data and agent-free analysis on protected real data.
 3.  Use Git, Docker, mock data, `.gitignore`, and validation checks to reduce the risk that sensitive data reach an AI provider.
 4.  Configure and use coding agents in a contained way.
-5.  Document the workflow clearly for collaborators, reviewers, and readers.
+5.  Document the workflow and its environmental impact clearly for collaborators, reviewers, and readers.
+6.  Visualize sensitive data using this method.
 
 ## Target Audience
 
@@ -194,7 +195,7 @@ logs/
 .ipynb_checkpoints/
 ```
 
-Treat `.gitignore` as a safety net, not as the main protection. The main protection is that real data never enter the dirty environment.
+Treat `.gitignore` as a safety net, not as the main protection. The main protection is that real data never leaves the clean environment.
 
 ## Develop with Docker and Mock Data
 

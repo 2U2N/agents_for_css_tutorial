@@ -1,10 +1,15 @@
-cff-version: 1.2.0
+cff-version: "1.2.0"
 message: "If you use this tutorial, please cite it."
 title: "Keeping Midas in the Sandbox: Using AI Coding Agents with Sensitive Research Data"
 authors:
-  - family-names: "Author"
-    given-names: "Name"
-year: 2026
+  - family-names: "Wegmann"
+    given-names: "David"
+  - family-names: "Kathirgamalingam"
+    given-names: "Ahrabhi"
+  - family-names: "Li"
+    given-names: "Yuru"
+  - family-names: "Pressmann"
+    given-names: "Paul"
 license: MIT
-repository-code: "https://example.org/replace-with-repository-url"
+repository-code: "https://github.com/2U2N/agents_for_css_tutorial"
 abstract: "A Methods Hub-style tutorial for using Docker Sandboxes, GitHub, and a separate vault environment to support agent-assisted code development without exposing protected research data."

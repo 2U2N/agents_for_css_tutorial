@@ -64,7 +64,7 @@ The problem is like the myth of King Midas. Midas' power and problem was that ev
 
 The touch of coding agents is similarly powerful. They can write code, confidently use obscure APIs, and generate elaborate data-processing pipelines far faster than human researchers could do manually. Used well, they allow researchers to test ideas, prototype analyses, document code, and improve workflows at a speed that would otherwise be difficult to achieve. In social science, where data are often difficult and costly to collect and can lose relevance quickly, coding agents promise to help researchers get more out of the data they can responsibly use.
 
-But their touch is also the source of the problem. Currently, almost all coding agents operate through remote provider infrastructure. Material they inspect is therefore transmitted beyond the local workspace and becomes subject to external processing, logging, retention, or governance arrangements. Once protected research material enters that channel, researchers may no longer be able to control where it goes, how it is processed, or what traces of it remains.
+But their touch is also the source of the problem. Currently, almost all coding agents operate through remote provider infrastructure. Material they inspect is therefore transmitted beyond the local workspace and becomes subject to external processing, logging, retention, or governance arrangements. Once protected research material enters that channel, researchers may no longer be able to control where it goes, how it is processed, or what traces of it remain.
 
 This tutorial refers to the directory that the coding agent can touch and act in as the *Midas directory*. The *vault directory* is the separate protected location where real data live. The goal of the workflow is not to make the coding agent harmless, but to mitigate its risks by separating it from the real data.
 
@@ -245,7 +245,7 @@ Docker Sandboxes run agents inside isolated sandbox environments. Docker documen
 
 ## Step 4: Instruct the Coding Agent
 
-At this point you can interact with the coding agent as usual and instruct it to develop your analysis pipeline. It is advisable start with these prompts in order:
+At this point you can interact with the coding agent as usual and instruct it to develop your analysis pipeline. It is advisable to start with these prompts in order:
 
 - "Familiarize yourself with this directory"
 

@@ -52,6 +52,7 @@ env/
 # Generated tutorial renders
 *.html
 index_files/
+output/
 
 # OS and editor files
 .DS_Store

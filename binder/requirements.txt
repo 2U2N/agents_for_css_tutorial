@@ -1,1 +1,2 @@
-# This tutorial's runnable examples use only the Python standard library.
+# No Python packages are required for the tutorial text.
+# This file is retained for Methods Hub/Binder rendering infrastructure.

@@ -1,0 +1,3 @@
+the answer to the number question is 8.
+
+the answer to the color question is red.

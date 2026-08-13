@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this tutorial or repository template, please cite it."
-title: "Using AI Coding Agents Responsibly with Sensitive Research Data"
+message: "If you use this tutorial, please cite it."
+title: "Keeping Midas in the Sandbox: Using AI Coding Agents with Sensitive Research Data"
 authors:
   - family-names: "Author"
     given-names: "Name"
 year: 2026
 license: MIT
 repository-code: "https://example.org/replace-with-repository-url"
-abstract: "A tutorial and repository template for agent-assisted code development and agent-free protected analysis in computational social science research."
+abstract: "A Methods Hub-style tutorial for using Docker Sandboxes, GitHub, and a separate vault environment to support agent-assisted code development without exposing protected research data."

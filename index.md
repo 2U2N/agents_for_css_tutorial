@@ -58,30 +58,6 @@ AI coding agents can be extremely useful in this setting, especially because the
 
 This makes the use of coding agents in social science research risky for projects involving sensitive, restricted, copyrighted, or participant-derived data. The issue becomes sharper in agentic systems that can inspect workspaces, call tools, execute commands, and act across connected resources. For such systems, classical security principles such as least privilege, defense-in-depth, and clear access boundaries are directly relevant [@heSecurityAIAgents2024; @zhangLLMAgentsShould2025]. Coding assistance must therefore be organized around containment from the start: the agent may help with code, documentation, tests, and mock data, but it must be kept away from protected data and protected outputs. This also supports clearer disclosure, because researchers can state not only that AI assistance was used, but also what the agent was allowed to see, what it was kept away from, and how the resulting code was reviewed [@kostyginaDisclosureStandardsSocial2023].
 
-## Basic Coding-Agent Concepts for Researchers and Reviewers
-
-Coding agents vary by provider and interface, but most work by reading some combination of prompt text, open files, selected repository context, terminal output, logs, and tool results. Some can edit files, run shell commands, install packages, use Git, browse the web, inspect screenshots, or call external tools.
-
-For researchers, the key containment question is not only “what did I paste into the chat?” It is also:
-
-- Which files were open or indexed?
-- Which directory did the agent start in?
-- Which commands did the agent run?
-- Which logs, stack traces, screenshots, or previews were visible?
-- Which external tools, plugins, or telemetry systems were active?
-- Could the agent read home folders, cloud drives, credentials, or protected data paths?
-
-For reviewers, the relevant evidence is not simply the brand name of the agent. A project should instead be able to show:
-
-- written agent rules;
-- a repository structure that separates code, mock data, real data, logs, and outputs;
-- mock-data-only agent development;
-- agent-free execution on protected data;
-- validation checks that were not merely generated and accepted by the same agent; and
-- a disclosure statement explaining what the agent did and did not access.
-
-The companion `AGENT_RULES.md` file provides project-level containment rules for the Midas directory. These include keeping protected files and outputs outside the agent workspace, denying unnecessary permissions, avoiding mounts of home folders or credentials, and reviewing all proposed changes before accepting them.
-
 ## Core Principle
 
 The problem is like the myth of King Midas. Midas' power and problem was that everything he touched turned to gold: an ability of great utility in monetary regards, but much more problematic when it came to food, drink, or his family. His gift was valuable only as long as he touched the right things.
@@ -138,10 +114,6 @@ The vault contains real data and protected outputs. It pulls code from GitHub, r
 Locally run coding models offer a data protective alternative to the hosted AI services used in this tutorial. They can provide greater control over where code and prompts are processed and may be preferable when external processing is prohibited. However, they do not come without their own drawbacks, as they require suitable hardware, installation, maintenance, and secure configuration, and their coding capabilities and tool integrations may be more limited.
 
 However, hosted coding agents may offer stronger model capabilities, more mature tool integration, and lower setup and maintenance requirements, and thus be the more attractive solution for some researchers.
-
-### Environmental Considerations
-
-Agent-assisted workflows can increase the number of model calls, reruns, debugging cycles, and computational experiments. Researchers should therefore not default to LLM-based methods when lighter, task-specific tools can provide sufficient validity at lower environmental cost. Environmental impact should be considered during model and workflow selection, rather than only reported afterward [@palickiDontLookUp2025].
 
 ## Step 1: Create Your Project Repository from the Template
 

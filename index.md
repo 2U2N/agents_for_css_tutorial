@@ -21,7 +21,7 @@ By the end of this tutorial, you will be able to:
 5.  Create and manually review a sanitized data-shape description that helps the coding agent write scripts without seeing real observations.
 6.  Use mock data in the Midas directory to develop and test analysis code before running that code on real data in the vault.
 7.  Review AI-generated code for validity, methodological appropriateness, and possible data-exfiltration risks before running it in the protected environment.
-8.  Document AI-agent use clearly for collaborators, reviewers, and readers, including what the agent could access, what it could not access, and who remained responsible for the final analysis.
+8.  Document AI-agent use clearly for collaborators, reviewers, and readers, including what the agent could access, and what it could not access.
 
 ## Target Audience
 
@@ -37,12 +37,12 @@ You need:
 
 - a [**GitHub**](https://github.com) account
 - a [**Docker log-in**](https://login.docker.com/u/login/) (can be authenticated with your GitHub account)
-- a ***computer*** ***A*** with internet access, running:
+- a ***computer-A*** with internet access, running:
   - your programming language of choice, i.e. [**Python**](https://www.python.org/downloads/) or [**R**](https://www.r-project.org/)
   - [**Git**](https://git-scm.com/downloads) or an equivalent Git host approved for your project.
   - [**Docker Sandboxes**](https://docs.docker.com/ai/sandboxes/get-started/)
 - Access to a Docker Sandboxes-supported [**AI-agent**](https://docs.docker.com/ai/sandboxes/agents/), together with an account or authentication method accepted by that agent, such as a subscription sign-in or an API key. Authentication requirements differ between agents; consult the relevant agent page before starting the sandbox.
-- A second ***computer B*** approved to store your real data, e.g. a server, with internet access, running:
+- A second ***computer-B*** approved to store your real data, e.g. a server, with internet access, running:
   - your programming language of choice, i.e. [**Python**](https://www.python.org/downloads/) or [**R**](https://www.r-project.org/)
   - [**Git**](https://git-scm.com/downloads)
 
@@ -64,11 +64,11 @@ The problem is like the myth of King Midas. Midas' power and problem was that ev
 
 The touch of coding agents is similarly powerful. They can write code, confidently use obscure APIs, and generate elaborate data-processing pipelines far faster than human researchers could do manually. Used well, they allow researchers to test ideas, prototype analyses, document code, and improve workflows at a speed that would otherwise be difficult to achieve. In social science, where data are often difficult and costly to collect and can lose relevance quickly, coding agents promise to help researchers get more out of the data they can responsibly use.
 
-But their touch is also the source of the problem. Currently, almost all coding agents operate through remote provider infrastructure. Material they inspect is therefore transmitted beyond the local workspace and becomes subject to external processing, logging, retention, or governance arrangements. Once protected research material enters that channel, researchers may no longer be able to control where it goes, how it is processed, or what traces of it remain.
+But the agents' touch is also the source of the problem. Currently, almost all coding agents operate through remote provider infrastructure. Material they inspect is therefore transmitted beyond the local workspace and becomes subject to external processing, logging, retention, or governance arrangements. Once protected research material enters that channel, researchers may no longer be able to control where it goes, how it is processed, or what traces of it remain.
 
 This tutorial refers to the directory that the coding agent can touch and act in as the *Midas directory*. The *vault directory* is the separate protected location where real data live. The goal of the workflow is not to make the coding agent harmless, but to mitigate its risks by separating it from the real data.
 
-The core rule is therefore:
+The core rule is:
 
 > Let the coding agent help with code, but do not let it touch protected data.
 
@@ -76,7 +76,7 @@ In practical terms, the data are stored in a vault directory. The coding agent i
 
 This architecture strongly reduces privacy and containment risks. It features two protection layers: a Docker Sandbox that confines the AI agent's access to the directory it is working in and a fully separate computer that stores the sensitive data and is never accessed by the coding agent [@docker_sandboxes]. This two-layered approach protects against setup mistakes and reduces the risk of human error by making the separation between the AI-agent environment and the sensitive-data environment explicit.
 
-The security claim of this workflow is deliberately narrow: it is designed to reduce the risk that an AI coding agent gains access to protected research data or protected outputs. It is not a comprehensive information-security framework. It also does not replace institutional security controls, secure credential management, access policies, backups, software updates, or incident-response procedures. These boundaries are discussed further in the [Limitations](#limitations) section.
+The security claim of this workflow is deliberately narrow: it is designed to reduce the risk that an AI coding agent gains access to protected research data or protected outputs. It is not a comprehensive information-security framework. It also does not replace institutional security controls, secure credential management, access policies, backups, software updates, or incident-response procedures.
 
 The architecture also does not, by itself, solve validity, interpretation, or accountability risks. Those still require human review, transparent documentation, and independent validation. On the upside, the workflow creates a code repository that can be made accessible to reviewers and readers, supporting transparency and reproducibility without implying that the repository or the workflow has been formally validated as a security or compliance standard.
 
@@ -111,7 +111,7 @@ The vault contains real data and protected outputs. It pulls code from GitHub, r
 
 ### Alternative: Local Models
 
-Locally run coding models offer a data protective alternative to the hosted AI services used in this tutorial. They can provide greater control over where code and prompts are processed and may be preferable when external processing is prohibited. However, they do not come without their own drawbacks, as they require suitable hardware, installation, maintenance, and secure configuration, and their coding capabilities and tool integrations may be more limited.
+Locally run models offer a data protective alternative to the hosted AI services used in this tutorial. They can provide greater control over where code and prompts are processed and may be preferable when external processing is prohibited. However, they do not come without their own drawbacks, as they require suitable hardware, installation, maintenance, and secure configuration, and their coding capabilities and tool integrations may be more limited.
 
 However, hosted coding agents may offer stronger model capabilities, more mature tool integration, and lower setup and maintenance requirements, and thus be the more attractive solution for some researchers.
 
@@ -125,9 +125,9 @@ Since this workflow is not the regular way of using coding agents, it is useful 
 - `scripts/`, where the agent can create analysis code;
 - `tools/`, which contains the vault-side data-shape report scripts.
 
-The easiest route is to open the [`2U2N/midas_template`](https://github.com/2U2N/midas_template) repository on GitHub and click **Use this template**. Create a new repository under your own GitHub account. Do not work directly in the template repository. The new repository is your project repository; it is the code-only bridge between the Midas directory and the vault directory.
+The easiest route is to open the [`2U2N/midas_template`](https://github.com/2U2N/midas_template) repository on GitHub and click **Use this template**. Create a new repository under your own GitHub account. The new repository is your project repository; it is the code-only bridge between the Midas directory and the vault directory.
 
-First set up the repository in the vault on ***computer B***. For the first setup, use `git clone`:
+First set up the repository in the vault on ***computer-B***. For the first setup, use `git clone`:
 
 ``` bash
 git clone https://github.com/YOUR-USER/YOUR-PROJECT.git
@@ -136,7 +136,7 @@ cd YOUR-PROJECT
 
 ## Step 2: Describe the Data Without Exposing It
 
-The agent needs to understand the shape of the data before it can write useful scripts. But the agent must not see the data itself. In this step we create a detailed `PROJECT_BRIEF.md` for the agent to read that communicates the necessary details without exposing any sensitive data. For that we
+The agent will need to understand the shape of the data before it can write useful scripts. But the agent must not see the data itself. In this step we create a detailed `PROJECT_BRIEF.md` for the agent to read that communicates the necessary details without exposing any sensitive data. For that we
 
 - create a detailed but sanitized structural description of the data in the vault
 
@@ -148,7 +148,7 @@ The agent needs to understand the shape of the data before it can write useful s
 
 ### Create a Detailed but Sanitized Description of the Data in the Vault
 
-With sufficient understanding of the shape and features of a dataset, a coding agent can write an analysis script for that data without accessing it. In this step we lay the foundation for that understanding by gathering as much information on the data that is supposed to be analyzed without exposing its sensitive contents.
+With sufficient understanding of the shape and features of a dataset, a coding agent can write an analysis script for that data without accessing it. In this step we lay the foundation for that understanding by gathering as much information on the data without exposing its sensitive contents.
 
 This can be done manually by writing up file names, row and column counts, data types, and similar structural details. But that can be tedious. Therefore, the template contains scripts in the folder `tools/` that, in a data-safe manner and without the use of any coding agent, scan a file or folder and create a report that is detailed but privacy preserving.
 
@@ -201,9 +201,9 @@ git commit -m "Add sanitized data shape description"
 git push
 ```
 
-## Step 3: Pull the Project to Computer A and Start Midas
+## Step 3: Pull the Project to Computer-A and Start Midas
 
-On ***computer A***, clone your project repository:
+On ***computer-A***, clone your project repository:
 
 ``` bash
 git clone https://github.com/YOUR-USER/YOUR-PROJECT.git
@@ -229,11 +229,12 @@ Choose a default network policy:
 
 Use ↑/↓ to navigate, Enter to select, or press 1–3.
 ```
+
 ### Authenticate Your Chosen AI Agent
 
 Signing in with `sbx login` authenticates Docker Sandboxes, but it does not necessarily authenticate the AI coding agent or its model provider. Depending on the agent, you may need a subscription account, an API key, or another authentication method before the agent can run. Authentication procedures differ between agents. Select your agent from Docker's list of [supported AI agents](https://docs.docker.com/ai/sandboxes/agents/) and follow the **Authentication** instructions on its agent-specific page.
 
-Start the AI agent of your choice. 
+Start the AI agent of your choice.
 
 ``` bash
 sbx run [agent] .
@@ -273,7 +274,7 @@ git push
 
 ## Step 6: Run Analysis in the Vault
 
-In the vault environment on ***computer B***, pull the reviewed code from GitHub:
+In the vault environment on ***computer-B***, pull the reviewed code from GitHub:
 
 ``` bash
 cd YOUR-PROJECT
@@ -298,12 +299,14 @@ Agent use should also be disclosed clearly. A disclosure does not need to overst
 
 > Analysis code was developed with AI-assisted coding under a data-containment workflow. The agent (product, model version, date of usage) had access only to mock data and sanitized structural documentation, not to raw data or protected outputs. Final analyses were run in an agent-free environment. Further details on the workflow are provided in \[this tutorial / repository / appendix\].
 
-## Limitations
+## Limitations {#limitations}
 
 This workflow reduces the risk that AI coding agents access protected research data, but it does not make such projects risk-free. Docker Sandboxes help keep the coding agent away from the host system and from files outside the chosen workspace, but the agent can still see everything inside the Midas directory. GitHub creates version history and review points, but it is not protected storage. The vault protects real data only if researchers keep agents, logs, screenshots, notebooks, and outputs inside the approved environment [@chenSurveyPrivacyRisks2025a; @heSecurityAIAgents2024; @zhangLLMAgentsShould2025].
 
 The workflow also does not remove the need for ethical, legal, and institutional review. Some projects may involve data that require stricter controls than the architecture described here, and researchers remain responsible for checking whether this setup is acceptable under their data agreements, ethics approvals, institutional policies, and applicable law.
 
 Finally, containment is not the same as validity. The coding agent may produce code that is inefficient, incorrect, misleading, or inappropriate for the research question. Human researchers must therefore review, test, and validate the code before it is run on real data and remain responsible for the final analysis, results, and interpretation.
+
+**AI use disclosure:** OpenAI’s ChatGPT and Codex, using GPT-5.5 and GPT-5.6 models, were used between June and September 2026 to assist with drafting, editing, and checking this tutorial and its code. The authors reviewed and revised all AI-assisted content and remain responsible for the final text and code.
 
 ## References

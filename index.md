@@ -6,6 +6,7 @@ author:
   - name: "Yuru Li"
   - name: "Paul Pressmann"
 bibliography: Coding_Agent_Tutorial.bib
+csl: apa.csl
 format:
   html: default
 ---

@@ -295,9 +295,9 @@ Before publication or review, the repository can be cleaned up and documented fo
 
 Reproducibility does not require making protected data public. In this workflow, readers and reviewers can inspect the code, understand the data structure it expects, run the pipeline on mock data, and evaluate the containment architecture. Authorized researchers with access to the protected vault data can reproduce the full analysis in the vault environment [@kostyginaDisclosureStandardsSocial2023; @engzellPaperFactory2026].
 
-Agent use should also be disclosed clearly. A disclosure does not need to overstate the role of the coding agent, but it should say what the agent helped with, what it could not access, and who remained responsible for the analysis [@kostyginaDisclosureStandardsSocial2023]. For example:
+Agent use should also be disclosed clearly. A disclosure does not need to overstate the role of the coding agent, but it should say what the agent helped with, what it could not access, and who remained responsible for the analysis [@kostyginaDisclosureStandardsSocial2023].
 
-> Analysis code was developed with AI-assisted coding under a data-containment workflow. The agent (product, model version, date of usage) had access only to mock data and sanitized structural documentation, not to raw data or protected outputs. Final analyses were run in an agent-free environment. Further details on the workflow are provided in \[this tutorial / repository / appendix\].
+For example: "Analysis code was developed with AI-assisted coding under a data-containment workflow. The agent (product, model version, date of usage) had access only to mock data and sanitized structural documentation, not to raw data or protected outputs. Final analyses were run in an agent-free environment. Further details on the workflow are provided in \[this tutorial / repository / appendix\]."
 
 ## Limitations {#limitations}
 
